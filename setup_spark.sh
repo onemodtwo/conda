@@ -1,8 +1,9 @@
 #!/bin/bash
-# Script to set up Spark in a conda environment.
+# Script to set up Spark for conda environments.
 
 if [ $# -lt 1 ]; then
   printf "\nUsage: sp_setup spark_version\n\n"
+  # usage message assumes a bash alias: alias sp_setup='<path-to-script>/setup_spark.sh'
 else
   if [ ! -d $HOME/.ipython/profile_pyspark${1} ]; then
     # create ipython profile in ~/.ipython
@@ -43,6 +44,7 @@ else
         "SPARK_HOME": "'${HOME}'/bin/spark/spark'${1}'"
      }\n}\n' > $CONDA_ROOT/kernels/pyspark${1}/kernel.json
   fi
+  # configurations for a specific conda environment
   PREFIX=$CONDA_PREFIX/etc/conda
   # make required directories
   mkdir -p $PREFIX/activate.d
