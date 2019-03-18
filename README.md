@@ -1,2 +1,2 @@
-# conda_utils
+# conda
 Utilities for conda environments
